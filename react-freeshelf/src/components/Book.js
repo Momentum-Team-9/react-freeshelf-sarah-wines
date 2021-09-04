@@ -13,16 +13,23 @@ export const Book = ({ title, author, url, shortDescription, coverImageUrl, publ
         <header>
           <h3>{title}</h3>
         </header>
-        <div className='card-content'>
+        
+          <div className='card-content' style={{margin: 20}}>
+          <div style={{float: 'right', marginTop: 0, marginLeft: 20, marginBottom: 10}}>
+          <img style={{height: 300}} src={coverImageUrl} alt="book jacket cover"/>
+          </div>
           <p><span>By: </span>{author}</p>
-          <img src={coverImageUrl} alt="book jacket cover"/>
+          
           <p><span></span> {shortDescription}</p>
-          <a href= {url}>Read it here</a>
           <div>
           {isExpanded ? <a href='#' onClick={handleExpanded}>Show Less <i class='fas fa-caret-up' /></a> : <a href='#' onClick={handleExpanded}>Show More <i class='fas fa-caret-down' /></a>}
           {isExpanded &&
-            <p><span>Publisher: </span>{publisher}</p> &&
-            <p><span>Publication Date: </span>{publicationDate}</p> &&
+            <p><span>Read it here: <a href={url}>{url}</a></span></p>}
+          {isExpanded && 
+            <p><span>Publisher: </span>{publisher}</p>} 
+          {isExpanded &&
+            <p><span>Publication Date: </span>{publicationDate}</p>}
+          {isExpanded &&
             <p><span>Detailed Description: </span>{detailedDescription}</p>}
         </div>
         </div>
