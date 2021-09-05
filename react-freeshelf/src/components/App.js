@@ -10,7 +10,7 @@ export const App = () => {
       <div className='flex center five'>
         <h1>Free Books</h1>
       </div>
-      <div>
+      <div style={{marginLeft: 100, marginRight: 100, marginBottom: 400}}>
         {books.map((book, idx) => {
           return <Book key={idx} title={book.title} author={book.author}url={book.url} shortDescription={book.shortDescription} coverImageUrl={book.coverImageUrl} publisher={book.publisher} publicationDate={book.publicationDate} detailedDescription={book.detailedDescription}  />
         })}

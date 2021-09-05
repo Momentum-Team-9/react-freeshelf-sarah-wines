@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 
 export const Book = ({ title, author, url, shortDescription, coverImageUrl, publisher, publicationDate, detailedDescription }) => {
   const [isExpanded, setIsExpanded] = useState(false)
-  // const { name, expertise } = props
-
+  
+  // const showImage = () => {
+  //  {coverImageUrl.length} > 0 ? 
+  // }
   const handleExpanded = () => {
     setIsExpanded(!isExpanded)
   }
@@ -15,22 +17,29 @@ export const Book = ({ title, author, url, shortDescription, coverImageUrl, publ
         </header>
         
           <div className='card-content' style={{margin: 20}}>
-          <div style={{float: 'right', marginTop: 0, marginLeft: 20, marginBottom: 10}}>
+          <div style={{float: 'right', marginTop: 0, marginLeft: 20, marginBottom: 10, border: '1px solid lightGrey'}}>
           <img style={{height: 300}} src={coverImageUrl} alt="book jacket cover"/>
           </div>
-          <p><span>By: </span>{author}</p>
+          <p><span></span><b>{author}</b></p>
           
           <p><span></span> {shortDescription}</p>
           <div>
-          {isExpanded ? <a href='#' onClick={handleExpanded}>Show Less <i class='fas fa-caret-up' /></a> : <a href='#' onClick={handleExpanded}>Show More <i class='fas fa-caret-down' /></a>}
+          {isExpanded ? <button onClick={handleExpanded}>Show Less <i className='fas fa-caret-up' /></button> : <button onClick={handleExpanded}>Show More <i className='fas fa-caret-down' /></button>}
           {isExpanded &&
-            <p><span>Read it here: <a href={url}>{url}</a></span></p>}
+            <p><span><b>Read it here: </b><a href={url}>{url}</a></span></p>}
           {isExpanded && 
-            <p><span>Publisher: </span>{publisher}</p>} 
+            (publisher) 
+            ? <p><span><b>Publisher: </b></span>{publisher}</p>
+            : null }
           {isExpanded &&
-            <p><span>Publication Date: </span>{publicationDate}</p>}
+            (publicationDate)
+            ? <p><span><b>Publication Date: </b></span>{publicationDate}</p>
+            : null }
           {isExpanded &&
-            <p><span>Detailed Description: </span>{detailedDescription}</p>}
+            (detailedDescription)
+            ? <p><span><b>Detailed Description: </b></span>{detailedDescription}</p>
+            : null}
+           
         </div>
         </div>
       </div>
