@@ -17,8 +17,8 @@ export const Book = ({ title, author, url, shortDescription, coverImageUrl, publ
         </header>
         
           <div className='card-content' style={{margin: 20}}>
-          <div style={{float: 'right', marginTop: 0, marginLeft: 20, marginBottom: 10, border: '1px solid lightGrey'}}>
-          <img style={{height: 300}} src={coverImageUrl} alt="book jacket cover"/>
+          <div style={{float: 'right', marginTop: 0, marginLeft: 20, marginBottom: 10}}>
+          <img style={{height: 300, border: '1px solid lightGrey'}} src={coverImageUrl} alt="book jacket cover"/>
           </div>
           <p><span></span><b>{author}</b></p>
           
